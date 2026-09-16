@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+:root {
+  /* Core Dark Theme Design Tokens */
+  --bg: #0b0b0f;
+  --bg-elevated: #121218;
+  --bg-card: #15151e;
+  --bg-glass: rgba(18, 18, 24, 0.75);
+
+  --fg: #fffff0;
+  --fg-secondary: #e2e2ea;
+  --fg-muted: #9496a1;
+
+  /* Energy Brand Accents (Emerald Clean Energy & Warm Amber Solar) */
+  --accent: #10b981;
+  --accent-hover: #059669;
+  --accent-2: #06b6d4;
+  --accent-amber: #f59e0b;
+
+  /* Borders and Glows */
+  --border: rgba(255, 255, 255, 0.08);
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --border-glow: rgba(16, 185, 129, 0.28);
+
+  /* Spacing & Layout */
+  --max-content-width: 1200px;
+}
+
+@theme {
+  --color-bg: var(--bg);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-bg-card: var(--bg-card);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-2: var(--accent-2);
+  --color-accent-amber: var(--accent-amber);
+  --color-border: var(--border);
+  --color-border-glow: var(--border-glow);
+  --font-heading: var(--font-sora), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+}
+
+/* Accessibility & Base Styles */
+html {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* High contrast focus ring for keyboard accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Headings Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sora), system-ui, sans-serif;
+  color: var(--fg);
+  letter-spacing: -0.02em;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #23232f;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #323242;
+}
