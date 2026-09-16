@@ -1,0 +1,84 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model SurveyStat {
+  id        String   @id @default(cuid())
+  label     String
+  value     String
+  suffix    String?
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model SurveyFinding {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model SurveySection {
+  id          String               @id @default(cuid())
+  title       String
+  slug        String               @unique
+  intro       String
+  order       Int                  @default(0)
+  createdAt   DateTime             @default(now())
+  updatedAt   DateTime             @updatedAt
+  points      SurveySectionPoint[]
+  chartData   SurveyChartData[]
+}
+
+model SurveySectionPoint {
+  id        String        @id @default(cuid())
+  sectionId String
+  section   SurveySection @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+  text      String
+  order     Int           @default(0)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+}
+
+model SurveyChartData {
+  id        String         @id @default(cuid())
+  sectionId String?
+  section   SurveySection? @relation(fields: [sectionId], references: [id], onDelete: SetNull)
+  label     String
+  value     Float
+  chartType String         // "bar" | "pie" | "area"
+  order     Int            @default(0)
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+}
+
+model Ambassador {
+  id          String   @id @default(cuid())
+  name        String
+  role        String
+  bio         String
+  photoUrl    String
+  area        String?
+  socialLinks Json?
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Initiative {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  href        String
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
