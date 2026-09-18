@@ -69,6 +69,13 @@ export const metadata: Metadata = {
     description:
       "Grassroots clean energy transition powered by 1,420+ household survey insights across 28 municipal wards.",
   },
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [{ url: "/apple-icon.svg", type: "image/svg+xml" }],
+  },
 };
 
 export default function RootLayout({
