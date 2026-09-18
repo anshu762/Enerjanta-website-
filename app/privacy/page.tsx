@@ -8,6 +8,14 @@ import { ShieldCheck, Database, Lock } from "lucide-react";
 export const metadata: Metadata = {
   title: "Privacy Policy & Open Data",
   description: "Enerjanta privacy policies, survey participant anonymity, and open data commitment.",
+  alternates: {
+    canonical: "/privacy",
+  },
+  openGraph: {
+    title: "Privacy Policy & Open Data | Enerjanta",
+    description: "Enerjanta privacy policies, survey participant anonymity, and open data commitment.",
+    url: "/privacy",
+  },
 };
 
 export default function PrivacyPage() {

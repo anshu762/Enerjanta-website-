@@ -15,6 +15,15 @@ export const metadata: Metadata = {
   title: "Survey Insights & Community Energy Data",
   description:
     "Comprehensive findings from 1,420+ households across 28 municipal wards analyzing clean energy adoption, costs, and barriers.",
+  alternates: {
+    canonical: "/survey-insights",
+  },
+  openGraph: {
+    title: "Survey Insights & Community Energy Data | Enerjanta",
+    description:
+      "Comprehensive empirical findings from 1,420+ households across 28 municipal wards analyzing clean energy adoption, costs, and barriers.",
+    url: "/survey-insights",
+  },
 };
 
 export default async function SurveyInsightsPage() {
