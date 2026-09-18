@@ -60,15 +60,16 @@ export function SurveyHighlights({ stats }: SurveyHighlightsProps) {
           </FadeInWhenVisible>
         </div>
 
-        {/* 4 Stat Cards */}
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* 4 Stat Cards - Equal Height Grid */}
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {stats.map((stat, idx) => (
-            <StaggerItem key={stat.id}>
+            <StaggerItem key={stat.id} className="h-full flex flex-col">
               <StatCard
                 value={stat.value}
                 suffix={stat.suffix}
                 label={stat.label}
                 icon={getIcon(idx)}
+                className="h-full"
               />
             </StaggerItem>
           ))}
